@@ -35,7 +35,7 @@ Upload the project to CF. I was unable to use the auto detected python buildpack
 cd cf-flask-test
 cf push flask-test-theresa -b https://github.com/cloudfoundry/cf-buildpack-python.git -m 128m -i 1  
 ```
-At the end of the execution, you will see messages below and are able to access the app by the url [flask-test-theresa.cfapps.io](flask-test-theresa.cfapps.io)
+At the end of the execution, you will see messages below and are able to access the app by the url [flask-test-theresa.cfapps.io](http://flask-test-theresa.cfapps.io)
 ```bash
 requested state: started
 instances: 1/1

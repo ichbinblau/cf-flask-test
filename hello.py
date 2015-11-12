@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/')
 def hello():
-    return 'Hello World!\n' + port
+    return 'Hello World at cf port' + port + '!'
 	#pprint.pformat(str(os.environ))
 
 port = os.getenv('PORT', '5000')
