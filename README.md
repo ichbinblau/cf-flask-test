@@ -4,7 +4,17 @@ This is a simple [Flask](http://flask.pocoo.org/) application that shows how app
 ## Prerequisites
 Apply for an Cloud Foundry account by signing up for a free trial at  [Pivotal Web Services](http://run.pivotal.io).
 
-Install the CF [CLI](http://info.pivotal.io/n0IY0cl02GAN0JU0e120Cxl) according to the OS you're using.
+Install the [CF CLI](https://console.run.pivotal.io/tools) according to the OS you're using.
+
+## Files
+
+The Python buildpack requires extra configuration files below:
+*   Procfile
+	This file specifies the command to start the app.
+*   requirements.txt
+	This file illustrates the additional python packages not included by the buildpack by default.
+*   runtime.txt
+	This file is to specify the python runtime, eg, python-2.7.10. 
 
 ## How to deploy the python web apps
 Open the command prompt and login the CF 
@@ -14,12 +24,13 @@ cf login -a api.run.pivotal.io
 Download the sample project
 ```bash
 git clone https://github.com/ichbinblau/cf-flask-test.git
+```
+Upload the project to CF. I was unable to use the auto detected python buildpack provided by CF here thereby specifying another working buildpack by -b.  At the end of the execution,  
 ```bash
-Upload the project to CF, I was unable to use the auto detected python buildpack provided by CF here. You are able to specify a working buildpack by -b.  At the end of the execution,  
 cd cf-flask-test
 cf push flask-test-theresa -b https://github.com/cloudfoundry/cf-buildpack-python.git -m 128m -i 1  
 ```
-At the end of the execution, you will see messages below and are able to access the app by url flask-test-theresa.cfapps.io
+At the end of the execution, you will see messages below and are able to access the app by [url](flask-test-theresa.cfapps.io)
 ```bash
 requested state: started
 instances: 1/1
@@ -43,6 +54,9 @@ Check the app health status, and you will see that there are 6 instances are up 
 ```bash
 cf apps 
 ```
+
+## Reference
+
 
 
 
