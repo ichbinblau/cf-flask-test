@@ -10,10 +10,15 @@ Install the [CF CLI](https://console.run.pivotal.io/tools) according to the OS y
 
 The Python buildpack requires extra configuration files below:
 *   Procfile
+
 	This file specifies the command to start the app.
+
 *   requirements.txt
+
 	This file illustrates the additional python packages not included by the buildpack by default.
+
 *   runtime.txt
+
 	This file is to specify the python runtime, eg, python-2.7.10. 
 
 ## How to deploy the python web apps
@@ -25,12 +30,12 @@ Download the sample project
 ```bash
 git clone https://github.com/ichbinblau/cf-flask-test.git
 ```
-Upload the project to CF. I was unable to use the auto detected python buildpack provided by CF here thereby specifying another working buildpack by -b.  At the end of the execution,  
+Upload the project to CF. I was unable to use the auto detected python buildpack provided by CF here thereby specifying another working buildpack by -b.   
 ```bash
 cd cf-flask-test
 cf push flask-test-theresa -b https://github.com/cloudfoundry/cf-buildpack-python.git -m 128m -i 1  
 ```
-At the end of the execution, you will see messages below and are able to access the app by [url](flask-test-theresa.cfapps.io)
+At the end of the execution, you will see messages below and are able to access the app by the url [flask-test-theresa.cfapps.io](flask-test-theresa.cfapps.io)
 ```bash
 requested state: started
 instances: 1/1
@@ -56,6 +61,8 @@ cf apps
 ```
 
 ## Reference
+https://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html
+
 
 
 
