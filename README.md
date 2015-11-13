@@ -57,7 +57,7 @@ cf scale flask-test-theresa -i 6
 ```
 Check the app health status, and you will see that there are 6 instances are up and running now. 
 ```bash
-cf apps 
+cf app flask-test-theresa
 ```
 
 ## Reference
