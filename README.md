@@ -60,6 +60,24 @@ Check the app health status, and you will see that there are 6 instances are up 
 cf app flask-test-theresa
 ```
 
+## Create and bind mysql database
+Run the below commands to create a cf db service and bind it with the web app
+```bash
+cf create-service cleardb spark flask-test-db   // creates a ClearDB MySQL service
+cf bind-service flask-test-theresa flask-test-db
+```
+
+## Test the database connection
+Add database operation logics in hello.py, and test by accessing [flask-test-theresa.cfapps.io/users](http://flask-test-theresa.cfapps.io/users)
+```python
+def get_user():
+    initial_db()
+    u = User('theresa', 'theresa.shan@xxx.com')
+    db_session.add(u)
+    db_session.commit()
+    return 'The first user is ' + db_session.query(User).first().name
+```
+
 ## Reference
 https://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html
 
