@@ -4,3 +4,4 @@ MarkupSafe
 Werkzeug
 sqlalchemy
 mysqlclient
+requests
