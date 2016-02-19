@@ -30,10 +30,10 @@ def get_user():
 
 @app.route('/get_countries')
 def get_countries():
-    try :
+    try:
         r = requests.get('http://services.groupkt.com/country/get/all', proxies={
-            'http': 'http://proxy-shm.intel.com:911',
-            'https': 'http://proxy-shm.intel.com:911'
+            'http': 'http://proxy-shz.intel.com:911',
+            'https': 'http://proxy-shz.intel.com:911'
         })
     except (ConnectionError, ReadTimeout, SSLError, ssl.SSLError, socket.error) as e:
             return str(e)
@@ -45,6 +45,13 @@ def get_countries():
     else:
         return "Request failure with code: " + r.status_code
 
+
+@app.route('/get_time')
+def get_server_time():
+    # get server time
+    import datetime
+    today = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    return "Today is: " + today
 
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
