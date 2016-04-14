@@ -6,3 +6,4 @@ applications:
   buildpack: https://github.com/cloudfoundry/cf-buildpack-python.git
   services:
   - webportal-db
+  - webportal-mq
